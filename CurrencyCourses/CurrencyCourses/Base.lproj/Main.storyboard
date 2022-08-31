@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gve-4z-cXT">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="zLG-rp-cuM">
+            <objects>
+                <tabBarController id="gve-4z-cXT" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IDe-k5-cSY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="NlA-3w-vQj" kind="relationship" relationship="viewControllers" id="kMV-dc-6uf"/>
+                        <segue destination="dnq-SY-Ebi" kind="relationship" relationship="viewControllers" id="Bcn-oB-ApE"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iw6-Jm-PSQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1084" y="-419"/>
+        </scene>
+        <!--Settings Controller View Controller-->
+        <scene sceneID="Z7i-4z-DMy">
+            <objects>
+                <viewController id="mbr-hV-bSs" customClass="SettingsControllerViewController" customModule="CurrencyCourses" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HNs-8B-3kT">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="0g3-Cq-raE">
+                                <rect key="frame" x="30" y="96" width="330" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="1r7-fe-wAw"/>
+                                </constraints>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NxK-KC-Ah2">
+                                <rect key="frame" x="16" y="308" width="358" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="358" id="uJj-AX-z4y"/>
+                                    <constraint firstAttribute="height" constant="31" id="zi1-Sc-N6u"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Показать курсы"/>
+                                <connections>
+                                    <action selector="pushShowCourses:" destination="mbr-hV-bSs" eventType="touchUpInside" id="Xn9-qm-p0y"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NXB-aV-ZoE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="NxK-KC-Ah2" firstAttribute="centerX" secondItem="HNs-8B-3kT" secondAttribute="centerX" id="0Md-G4-ueT"/>
+                            <constraint firstItem="0g3-Cq-raE" firstAttribute="top" secondItem="NXB-aV-ZoE" secondAttribute="top" constant="40" id="2PW-M1-ebm"/>
+                            <constraint firstItem="NxK-KC-Ah2" firstAttribute="top" secondItem="0g3-Cq-raE" secondAttribute="bottom" constant="50" id="8aY-IH-Aq3"/>
+                            <constraint firstItem="NXB-aV-ZoE" firstAttribute="trailing" secondItem="0g3-Cq-raE" secondAttribute="trailing" constant="30" id="lDc-zb-wwM"/>
+                            <constraint firstItem="0g3-Cq-raE" firstAttribute="leading" secondItem="NXB-aV-ZoE" secondAttribute="leading" constant="30" id="omI-ho-uhz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="QYN-d4-jAh">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="0ry-Ce-pQe">
+                            <connections>
+                                <action selector="pushCancel:" destination="mbr-hV-bSs" id="Iga-aW-XnJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="0g3-Cq-raE" id="hhY-wT-dhi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qLD-sa-VC6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1790.7692307692307" y="-1321.5639810426539"/>
+        </scene>
+        <!--Курсы-->
+        <scene sceneID="vPg-0c-ZiM">
+            <objects>
+                <tableViewController id="yDF-aq-Vw6" customClass="CoursesController" customModule="CurrencyCourses" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mSv-3G-ehj">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="63" id="QbY-N0-aBT" customClass="CourseCell" customModule="CurrencyCourses" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="63"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QbY-N0-aBT" id="8ha-WU-pdH">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="63"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vtA-ly-vI4">
+                                            <rect key="frame" x="26" y="11" width="52" height="28"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="SVD-56-tf0"/>
+                                                <constraint firstAttribute="width" constant="52" id="T5h-2a-qFS"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Название валюты" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvZ-Jx-t2B">
+                                            <rect key="frame" x="98" y="11" width="168" height="28"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="6XV-FU-pjW"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Курс" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPk-zL-Vf0">
+                                            <rect key="frame" x="301" y="11" width="63" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="63" id="1GT-3P-Kf7"/>
+                                                <constraint firstAttribute="height" constant="32" id="NxC-mo-5MW"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="QPk-zL-Vf0" firstAttribute="leading" secondItem="HvZ-Jx-t2B" secondAttribute="trailing" constant="35" id="HRA-fX-aZk"/>
+                                        <constraint firstItem="vtA-ly-vI4" firstAttribute="top" secondItem="8ha-WU-pdH" secondAttribute="topMargin" constant="5" id="HUu-IU-6NX"/>
+                                        <constraint firstAttribute="trailing" secondItem="QPk-zL-Vf0" secondAttribute="trailing" constant="26" id="Igz-JM-rHW"/>
+                                        <constraint firstItem="vtA-ly-vI4" firstAttribute="leading" secondItem="8ha-WU-pdH" secondAttribute="leadingMargin" constant="6" id="OBf-Uc-wf8"/>
+                                        <constraint firstItem="QPk-zL-Vf0" firstAttribute="top" secondItem="8ha-WU-pdH" secondAttribute="top" constant="11" id="U46-EZ-fVz"/>
+                                        <constraint firstItem="HvZ-Jx-t2B" firstAttribute="leading" secondItem="vtA-ly-vI4" secondAttribute="trailing" constant="20" id="Ura-Ei-PWV"/>
+                                        <constraint firstItem="vtA-ly-vI4" firstAttribute="leading" secondItem="8ha-WU-pdH" secondAttribute="leading" constant="26" id="eZN-eq-2sD"/>
+                                        <constraint firstItem="vtA-ly-vI4" firstAttribute="top" secondItem="8ha-WU-pdH" secondAttribute="top" constant="11" id="f3u-CN-dDb"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imageFlag" destination="vtA-ly-vI4" id="7Di-oU-zMk"/>
+                                    <outlet property="labelCourse" destination="QPk-zL-Vf0" id="UqN-Rk-a0p"/>
+                                    <outlet property="labelCurrencyName" destination="HvZ-Jx-t2B" id="KkV-QN-UWK"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yDF-aq-Vw6" id="KfD-ed-0Xq"/>
+                            <outlet property="delegate" destination="yDF-aq-Vw6" id="WOT-Ko-fIR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Курсы" id="HVi-0q-Qsz">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="X8A-1H-p2b">
+                            <connections>
+                                <segue destination="Wkz-o6-lSS" kind="presentation" id="b7g-fH-KTS"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="ypA-MS-QfE">
+                            <connections>
+                                <action selector="pushRefreshAction:" destination="yDF-aq-Vw6" id="VLc-Ur-0nq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Lc-bC-xD4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="853.84615384615381" y="-689.57345971563973"/>
+        </scene>
+        <!--Конвертер-->
+        <scene sceneID="KJA-vD-cq1">
+            <objects>
+                <viewController id="HMn-pg-OcZ" customClass="ConverterController" customModule="CurrencyCourses" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s0v-7C-WgE">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QSB-yf-ru2">
+                                <rect key="frame" x="25" y="249" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="textFromEditingChanged:" destination="HMn-pg-OcZ" eventType="editingChanged" id="pvC-6d-DMR"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vc6-uB-8U2">
+                                <rect key="frame" x="186.66666666666666" y="405.66666666666669" width="17" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUT-b2-3iA">
+                                <rect key="frame" x="325.66666666666669" y="404" width="39" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="RUB"/>
+                                <connections>
+                                    <action selector="pushToAction:" destination="HMn-pg-OcZ" eventType="touchUpInside" id="qfv-8A-4No"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0c-Du-SPb">
+                                <rect key="frame" x="26" y="404.66666666666669" width="38" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="RUB"/>
+                                <connections>
+                                    <action selector="pushFromAction:" destination="HMn-pg-OcZ" eventType="touchUpInside" id="ZW2-Yv-vir"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K44-Xg-TKG">
+                                <rect key="frame" x="268" y="249" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jYF-Sf-gda"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XUT-b2-3iA" firstAttribute="centerX" secondItem="s0v-7C-WgE" secondAttribute="centerX" constant="150" id="FUG-rz-SR0"/>
+                            <constraint firstItem="XUT-b2-3iA" firstAttribute="centerY" secondItem="s0v-7C-WgE" secondAttribute="centerY" id="LCz-tE-4EC"/>
+                            <constraint firstItem="Vc6-uB-8U2" firstAttribute="centerX" secondItem="s0v-7C-WgE" secondAttribute="centerX" id="d6O-Kh-0o9"/>
+                            <constraint firstItem="v0c-Du-SPb" firstAttribute="centerY" secondItem="s0v-7C-WgE" secondAttribute="centerY" id="dWv-lV-SHS"/>
+                            <constraint firstItem="v0c-Du-SPb" firstAttribute="centerX" secondItem="s0v-7C-WgE" secondAttribute="centerX" constant="-150" id="e0b-Fc-rJ0"/>
+                            <constraint firstItem="Vc6-uB-8U2" firstAttribute="centerY" secondItem="s0v-7C-WgE" secondAttribute="centerY" id="pEF-ut-qlp"/>
+                            <constraint firstItem="v0c-Du-SPb" firstAttribute="centerY" secondItem="s0v-7C-WgE" secondAttribute="centerY" id="ypF-yC-MiV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Конвертер" id="kFo-vx-i0c"/>
+                    <connections>
+                        <outlet property="buttonDone" destination="sWE-JH-gGb" id="xPQ-UX-q5j"/>
+                        <outlet property="buttonFrom" destination="v0c-Du-SPb" id="dn7-oU-HxP"/>
+                        <outlet property="buttonTo" destination="XUT-b2-3iA" id="fve-Bb-HsV"/>
+                        <outlet property="textFrom" destination="QSB-yf-ru2" id="MmM-vB-ZhT"/>
+                        <outlet property="textTo" destination="K44-Xg-TKG" id="QKg-0J-KBz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="05J-Fw-MiM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <barButtonItem style="done" systemItem="done" id="sWE-JH-gGb">
+                    <connections>
+                        <action selector="pushDoneAction:" destination="HMn-pg-OcZ" id="Aj6-g5-BHR"/>
+                    </connections>
+                </barButtonItem>
+            </objects>
+            <point key="canvasLocation" x="853.84615384615381" y="83.886255924170612"/>
+        </scene>
+        <!--Выберите валюту-->
+        <scene sceneID="RvM-u8-Wdg">
+            <objects>
+                <tableViewController id="fSh-iN-bUM" customClass="SelectCurrencyController" customModule="CurrencyCourses" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="74q-y4-D7o">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="DH6-vz-Fhm">
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DH6-vz-Fhm" id="iF3-ET-NVE">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fSh-iN-bUM" id="twb-N3-6EW"/>
+                            <outlet property="delegate" destination="fSh-iN-bUM" id="EN8-mz-ads"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Выберите валюту" id="6Qa-ZZ-Pki">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="rqt-w0-LWe">
+                            <connections>
+                                <action selector="pushCancelAction:" destination="fSh-iN-bUM" id="RRz-GN-Ghn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ez6-Aj-E9w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2735" y="108"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="E2Z-AL-tRo">
+            <objects>
+                <navigationController storyboardIdentifier=" selectedCurrencyNSID" id="4oi-ub-Wgt" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CoC-yw-D1W">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fSh-iN-bUM" kind="relationship" relationship="rootViewController" id="vXX-a6-j1p"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bjH-fW-hlv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1828" y="108"/>
+        </scene>
+        <!--Курсы-->
+        <scene sceneID="vrS-4t-x5T">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NlA-3w-vQj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Курсы" id="ZbM-XS-HbC"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9W3-Pr-Ls9">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yDF-aq-Vw6" kind="relationship" relationship="rootViewController" id="6SW-f3-1bR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fAN-ea-3ht" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-75" y="-690"/>
+        </scene>
+        <!--Конвертер-->
+        <scene sceneID="Oco-ng-gQz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dnq-SY-Ebi" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Конвертер" id="Nzo-Ey-BME"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UhH-CC-t79">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HMn-pg-OcZ" kind="relationship" relationship="rootViewController" id="TJk-6V-2fe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sKn-yY-3AL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-75.384615384615387" y="83.886255924170612"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ylN-BD-kyL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wkz-o6-lSS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Db3-UX-832">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mbr-hV-bSs" kind="relationship" relationship="rootViewController" id="5Iz-Mj-BL4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dMf-JH-qdI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="861.53846153846155" y="-1321.5639810426539"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
